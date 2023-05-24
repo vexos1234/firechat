@@ -3,11 +3,18 @@ import { addDoc, collection, serverTimestamp, onSnapshot, query, orderBy } from 
 import { auth, db } from '../firebase-config';
 import "../styles/Chat.css";
 import { Box, Grid } from '@material-ui/core';
-import { Stack } from "@mui/material";
+import { Stack } from '@mui/material';
+import { useRef } from 'react';
 
 function Chat() {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
+
+  function ScrollToBottom(){
+    const elementRef = useRef();
+    useEffect(() => elementRef.current.scrollIntoView());
+    return <div ref={elementRef} />;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +45,7 @@ function Chat() {
     });
 
     return () => unsuscribe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -57,6 +65,7 @@ function Chat() {
                   <div className="message-1" key={message.id}>
                     <span className="user">&nbsp;&nbsp;{message.user}</span>
                     {message.text}&nbsp;&nbsp;
+                    <ScrollToBottom />
                   </div>
                 ))}
             </div>
