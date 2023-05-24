@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Chat from './components/Chat';
+import { Auth } from './components/Auth';
+import Cookies from 'universal-cookie';
+import { signOut } from 'firebase/auth'
+import { Button } from '@material-ui/core';
+import { auth } from './firebase-config';
+
+const cookies = new Cookies();
 
 function App() {
+  const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
+
+  const signUserOut = async () => {
+    await signOut(auth)
+    cookies.remove("auth-token")
+    setIsAuth(false)
+
+  };
+
+  if (!isAuth) {
+    return (
+      <>
+        <Auth setIsAuth={setIsAuth} />
+      </>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Chat />
+      <Button onClick={signUserOut}>Sign Out</Button>
     </div>
-  );
+
+
+  )
+
 }
 
 export default App;
