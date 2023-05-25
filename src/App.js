@@ -29,12 +29,11 @@ function App() {
   return (
     <div>
       <Chat />
+      <div className='messenger-button'>
       <Button onClick={signUserOut}>Sign Out</Button>
+      </div>
     </div>
-
-
   )
-
 }
 
 export default App;

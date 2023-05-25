@@ -10,7 +10,7 @@ function Chat() {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  function ScrollToBottom(){
+  function ScrollToBottom() {
     const elementRef = useRef();
     useEffect(() => elementRef.current.scrollIntoView());
     return <div ref={elementRef} />;
@@ -45,29 +45,31 @@ function Chat() {
     });
 
     return () => unsuscribe();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-      <Grid>
-        {/* Chat */}
+    <Grid /*container justifyContent="flex-end"*/>
+      {/* Chat */}
 
-        <div classname="header">
-          <h1>Chat DEMO</h1>
-        </div>
-
-        {/* messages box */}
-        <Box sx={{ overflow: 'scroll', height: '50vh', width: '50vh' }}>
-          <Stack>
-            <div>
-                {" "}
-                {messages.map((message =>
-                  <div className="message-1" key={message.id}>
-                    <span className="user">&nbsp;&nbsp;{message.user}</span>
-                    {message.text}&nbsp;&nbsp;
-                    <ScrollToBottom />
+      {/* messages box */}
+      <Box>
+      <div classname="header">
+        <h1>Chat DEMO</h1>
+      </div>
+        <Box sx={{ overflow: 'auto', height: '70vh', width: '70vh', marginLeft: '20px' }}>
+          <Stack sx={{padding: 1}}>
+            <div className='columm'>
+              {" "}
+              {messages.map((message =>
+                <div className='message' key={message.id}>
+                  <span className="user">&nbsp;&nbsp;{message.user}</span>
+                  <div className='message-1'>  
+                  &nbsp;{message.text}&nbsp;
                   </div>
-                ))}
+                  <ScrollToBottom />
+                </div>
+              ))}
             </div>
           </Stack>
         </Box>
@@ -76,6 +78,7 @@ function Chat() {
           <div className='new-message-input'>
             <form onSubmit={handleSubmit}>
               <input
+                className='messenger-input'
                 placeholder="Type your message here"
                 onChange={(e) => setNewMessage(e.target.value)}
                 value={newMessage}
@@ -85,7 +88,9 @@ function Chat() {
             </form>
           </div>
         </Box>
-      </Grid>
+      </Box>
+
+    </Grid>
   )
 }
 

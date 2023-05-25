@@ -29,16 +29,18 @@
 }
 
 .message {
-  display: flex;
-  align-items: flex-start;
+  display: inline;
+  align-items: flex-end;
   margin-bottom: 10px;
 }
 
 
 .user {
-  font-weight: bold;
-  margin-right: 10px;
-  color: #333;
+  font-weight: lighter;
+  font-size: 2vh;
+  margin-right: 6px;
+  color: #00000063;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .new-message-form {
@@ -48,7 +50,6 @@
 }
 
 .new-message-input {
-  flex: 1;
   border: none;
   outline: none;
   background: transparent;
@@ -58,13 +59,10 @@
   border-radius: 5px 0 0 5px;
 }
 
-.send-button {
-  border: none;
-  outline: none;
-  background: #3b5998;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
+.columm {
+  flex-direction: column;
+  text-align: right;
+  margin-bottom: 10px;
 }
 
 .container {
@@ -74,11 +72,56 @@
 }
 
 .message-1 {
-  display: inline-flex;
-  border: 0px solid rgba(100, 100, 100, 1);
-  font-size: 3vh;
-  border-radius: 75px;
+  display: inline;
+  font-size: 20px;
+  border-radius: 80px;
+  border-color: #0084ff;
+  border-width: 2px;
+  border: 1px solid rgba(0, 132, 255, 1);
   color: #ffffff;
   background-color: rgba(0, 132, 255, 1);
-  margin-top: 1vh;
+  margin-top: 6px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.messenger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #0084ff;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.messenger-button:hover {
+  background-color: #0065c2;
+}
+
+.messenger-input {
+  display: inline-flex;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f5f6f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
+.messenger-input:focus {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.right-aligned-text {
+  text-align: right;
 }

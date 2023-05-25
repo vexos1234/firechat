@@ -20,7 +20,7 @@ export const Auth = (props) => {
     };
 
     return (
-        <div>
+        <div className='messenger-button'>
             <Button onClick={signInWithGoogle}>Sign In With Google</Button>
         </div>
     )
