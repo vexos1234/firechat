@@ -31,13 +31,14 @@
 .message {
   display: inline;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-top: 10px;
+
 }
 
 
 .user {
   font-weight: lighter;
-  font-size: 2vh;
+  font-size: 10px;
   margin-right: 6px;
   color: #00000063;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -63,6 +64,7 @@
   flex-direction: column;
   text-align: right;
   margin-bottom: 10px;
+  width: 38vw;
 }
 
 .container {
@@ -77,7 +79,7 @@
   border-radius: 80px;
   border-color: #0084ff;
   border-width: 2px;
-  border: 1px solid rgba(0, 132, 255, 1);
+  border: 1hv solid rgba(0, 132, 255, 1);
   color: #ffffff;
   background-color: rgba(0, 132, 255, 1);
   margin-top: 6px;
@@ -89,9 +91,11 @@
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
+  height: 25px;
+  width: 40px;
   border-radius: 20px;
   background-color: #0084ff;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.87);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -111,8 +115,8 @@
   background-color: #f5f6f8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
-  width: 100%;
-  max-width: 400px;
+  width: 35vw;
+  max-width: auto;
   margin-bottom: 10px;
 }
 

@@ -53,43 +53,37 @@ function Chat() {
       {/* Chat */}
 
       {/* messages box */}
-      <Box>
       <div classname="header">
         <h1>Chat DEMO</h1>
       </div>
-        <Box sx={{ overflow: 'auto', height: '70vh', width: '70vh', marginLeft: '20px' }}>
-          <Stack sx={{padding: 1}}>
-            <div className='columm'>
-              {" "}
-              {messages.map((message =>
-                <div className='message' key={message.id}>
-                  <span className="user">&nbsp;&nbsp;{message.user}</span>
-                  <div className='message-1'>  
+      <Box sx={{ overflow: 'auto', height: '60vh', width: '40vw', marginLeft: '20px' }}>
+        <Stack sx={{ padding: 1 }}>
+          <div className='columm'>
+            {" "}
+            {messages.map((message =>
+              <div className='message' key={message.id}>
+                <span className="user">&nbsp;&nbsp;{message.user}</span>
+                <div className='message-1'>
                   &nbsp;{message.text}&nbsp;
-                  </div>
-                  <ScrollToBottom />
                 </div>
-              ))}
-            </div>
-          </Stack>
-        </Box>
-
-        <Box>
-          <div className='new-message-input'>
-            <form onSubmit={handleSubmit}>
-              <input
-                className='messenger-input'
-                placeholder="Type your message here"
-                onChange={(e) => setNewMessage(e.target.value)}
-                value={newMessage}
-              >
-              </input>
-              <button type="submit" className='send-button'>Send</button>
-            </form>
+                <ScrollToBottom />
+              </div>
+            ))}
           </div>
-        </Box>
+        </Stack>
       </Box>
-
+      <div className='new-message-input'>
+        <form onSubmit={handleSubmit}>
+          <input
+            className='messenger-input'
+            placeholder="Type your message here"
+            onChange={(e) => setNewMessage(e.target.value)}
+            value={newMessage}
+          >
+          </input>
+          <button type="submit" className='send-button'>Send</button>
+        </form>
+      </div>
     </Grid>
   )
 }

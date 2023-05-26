@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie';
 import { signOut } from 'firebase/auth'
 import { Button } from '@material-ui/core';
 import { auth } from './firebase-config';
+import { Stack } from '@mui/material';
 
 const cookies = new Cookies();
 
@@ -27,12 +28,12 @@ function App() {
     );
   }
   return (
-    <div>
+    <Stack direction="row" spacing={2}>
       <Chat />
       <div className='messenger-button'>
-      <Button onClick={signUserOut}>Sign Out</Button>
+        <Button onClick={signUserOut}>Sign Out</Button>
       </div>
-    </div>
+    </Stack>
   )
 }
 
